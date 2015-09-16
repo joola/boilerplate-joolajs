@@ -1,0 +1,60 @@
+<html lang="en">
+
+<head>
+  <title>JoolaJS boilerplate</title>
+  <link rel="stylesheet" href="/css/wireframe.css">
+  <script src="/joola.js?APIToken=apitoken-demo"></script>
+  <script src="/js/wireframe.js"></script>
+</head>
+
+<body>
+  <h1>JoolaJS boilerplate</h1>
+  <div id="version"></div>
+  <div id="timeline" style="height:250px;"></div>
+
+  <script>
+    document.getElementById('version').innerText = joola.VERSION;
+    joola.on('ready', function() {
+
+      var user = {
+        username: 'test',
+        password: 'neverused',
+        roles: 'reader',
+        workspace: 'demo',
+        filter: [
+          ['browser', 'eq', 'Chrome']
+        ]
+      };
+      joola.users.generateToken(user, function(err, token) {
+        joola_apitoken = null;
+        joola._token = token._;
+        joola.USER = token.user;
+
+        new joola.viz.Timeline({
+          container: '#timeline',
+          chart: {
+            plotOptions: {
+              line: {
+                turboThreshold: 10000
+              }
+            },
+            yAxis: [{
+              min: 0
+            }]
+          },
+          caption: 'Visits over Time',
+          query: {
+            timeframe: 'last_day',
+            interval: 'minute',
+            dimensions: ['timestamp'],
+            metrics: ['visits'],
+            collection: 'demo'
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
