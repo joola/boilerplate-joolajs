@@ -1,20 +1,20 @@
 {
-  "name": "bootstrap-joolajs",
+  "name": "Boilerplate-joolajs",
   "version": "1.0.0",
-  "description": "Bootstrap for JoolaJS",
+  "description": "Boilerplate for JoolaJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joola/bootstrap-joolajs.git"
+    "url": "git+https://github.com/joola/boilerplate-joolajs.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/joola/bootstrap-joolajs/issues"
+    "url": "https://github.com/joola/boilerplate-joolajs/issues"
   },
-  "homepage": "https://github.com/joola/bootstrap-joolajs#readme",
+  "homepage": "https://github.com/joola/boilerplate-joolajs#readme",
   "dependencies": {
     "config": "^1.16.0",
     "express": "^4.13.3",
